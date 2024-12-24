@@ -120,11 +120,41 @@ String[] arr = {"Apple", "Banana", "Cherry"};
 ArrayList<String> list = Arrays.stream(arr)
                                .collect(Collectors.toCollection(ArrayList::new));
 
+Streams will def be important
+Arrays.stream(arr)
+Converts an array into a Stream, allowing you to perform functional programming operations like filter, map, and reduce.\
+
+int[] arr = {1, 2, 3};
+int sum = Arrays.stream(arr).sum(); // Sum of elements: 6
+
+Arrays.copyOf(arr, newLength)
+Creates a new array by copying the elements of the original array into a new array with the specified length.
+int[] arr = {1, 2, 3};
+int[] newArr = Arrays.copyOf(arr, 5); // New array: [1, 2, 3, 0, 0]
+
+Arrays.sort(arr)
+Sorts the array in-place in ascending order. For custom sorting, you can use Arrays.sort(arr, Comparator) for objects.
+int[] arr = {3, 1, 2};
+Arrays.sort(arr); // Sorted array: [1, 2, 3]
+
+Arrays.equals(arr1, arr2): Compares two arrays for equality.
+Arrays.fill(arr, value): Fills an array with a specific value.
 
 
+Lambdas
 
+(parameters) -> { body }
 
+Parameters: The input parameters of the lambda function.
 
+If there are no parameters, use () (e.g., () -> {}).
+If there’s one parameter, you can omit parentheses (e.g., x -> {}).
+For multiple parameters, enclose them in parentheses (e.g., (x, y) -> {}).
+
+Arrow (->): Separates the parameter list from the body.
+Body: The code to execute when the lambda is invoked.
+
+If the body has a single statement, you can omit the curly braces {} and return.
 
 
 
