@@ -1,5 +1,6 @@
 import ecs100.UI;
 
+import java.awt.event.MouseEvent;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,6 +25,7 @@ public class ListsAndStuff {
 
     void setupGUI(){
         UI.addButton(buttonLabel, this::startOrStop);
+        UI.setMouseListener(this::doMouse);
     }
     void startOrStop(){
         if (isRunning) {
@@ -34,6 +36,7 @@ public class ListsAndStuff {
         isRunning = !isRunning;
     }
 
-
-
+    void doMouse(String action,double x, double y){
+        System.out.println("mouse: " + x + ", " + y);
+    }
 }

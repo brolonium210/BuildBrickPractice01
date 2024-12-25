@@ -193,14 +193,156 @@ If the body has a single statement, you can omit the curly braces {} and return.
 
 
 
+Use Conditional Breakpoints
+What to do: Set a breakpoint that triggers only if the mouse clicks in a specific area or meets a condition.
+    Why it’s useful: Avoids unnecessary pauses when the mouse is clicking in unrelated areas.
+    How:
+        Add a condition to the breakpoint, e.g., x > 100 && x < 200 && y > 50 && y < 150.
+        The program will only pause if the mouse click occurs in the specified range.
+
+Log the Coordinates for Analysis
+    What to do: Use the debugger to add a log message or evaluate an expression dynamically.
+    Why it’s useful: Tracks all mouse clicks in a single debugging session without interrupting the flow.
+    How:
+        In IntelliJ, right-click a breakpoint and choose More > Log Message to Console.
+        Log the x and y values without pausing execution.
+
+
+Use Breakpoints in the Mouse Event Handler
+    What to do: Set breakpoints inside the method handling the mouse click event (e.g., mouseClicked, mousePressed, etc.).
+    Why it’s useful: Allows you to inspect the mouse coordinates (x, y) and other related variables during a click.
+    How:
+        public void mouseClicked(MouseEvent e) {
+            int x = e.getX();
+            int y = e.getY();
+            // Set a breakpoint here to inspect x and y
+        }
+
+    When the breakpoint triggers, check the x and y values in the debugger to ensure they match the expected location.
+
+
+    Evaluate Expressions Dynamically
+    What to do: While paused at a breakpoint, use the Evaluate Expression tool to calculate and verify if the mouse coordinates match your expectations.
+    Why it’s useful: Allows you to test expressions without modifying the code.
+        How:
+            In IntelliJ, click Run > Debug > Evaluate Expression.
+            Example expressions:
+                e.getX() >= button.getX() && e.getX() <= button.getX() + button.getWidth()
+                e.getY() >= panel.getY() && e.getY() <= panel.getY() + panel.getHeight()
+
+Logging options
+
+When a breakpoint is hit, the following can be logged to the console:
+    "Breakpoint hit" message: a log message like Breakpoint reached at ocean.Whale.main(Whale.java:5).
+    Stack trace: the stack trace for the current frame.
+        This is useful if you want to check what paths have led to this point without interrupting the program execution.
+    Evaluate and log: the result of an arbitrary expression, for example, "Initializing" or users.size().
 
 
 
 
 
+Conditional Breakpoints Are KING!!!!!!!!!!!!!
+Here’s the list of **10 beginner-level conditional breakpoint challenges** in plain text format that you can easily email to your team:
 
+---
 
+### **1. Basic Conditional Breakpoint**
+- **Objective**: Set a breakpoint that only triggers if a specific variable equals a value.
+- **Instructions**:
+  - Open a program where you handle mouse clicks.
+  - Set a breakpoint in the `mouseClicked` method.
+  - Add a condition: `x == 100 && y == 200`.
+  - Click at different locations and verify the breakpoint only triggers when the coordinates are `(100, 200)`.
 
+---
+
+### **2. Multiple Conditions**
+- **Objective**: Use `AND` and `OR` conditions in the breakpoint.
+- **Instructions**:
+  - Modify the condition to: `x > 50 && x < 200 || y > 100`.
+  - Test if the breakpoint triggers only when the condition is satisfied.
+  - Experiment with different mouse clicks to observe behavior.
+
+---
+
+### **3. Inspect Object Properties**
+- **Objective**: Trigger a breakpoint based on an object's property.
+- **Instructions**:
+  - In a program with UI components, inspect if a button's bounds match the mouse coordinates.
+  - Add a condition: `button.getBounds().contains(x, y)`.
+  - Test it by clicking on the button and see if the breakpoint triggers.
+
+---
+
+### **4. Use Custom Method in Condition**
+- **Objective**: Call a method in the breakpoint condition.
+- **Instructions**:
+  - Create a method like `isInBounds(int x, int y)` that returns `true` if the coordinates are in a specific range.
+  - Set the condition to: `isInBounds(x, y)`.
+  - Debug the code and verify the breakpoint behavior.
+
+---
+
+### **5. Monitor Variable Changes**
+- **Objective**: Set a breakpoint that triggers when a variable value changes.
+- **Instructions**:
+  - Add a loop where `int counter` increments.
+  - Set a breakpoint on the loop with the condition: `counter == 10`.
+  - Verify the program stops when the counter reaches 10.
+
+---
+
+### **6. Debug Array or Collection**
+- **Objective**: Trigger a breakpoint based on the contents of a collection.
+- **Instructions**:
+  - Debug a program with a list of points.
+  - Set a condition: `points.contains(new Point(100, 200))`.
+  - Test with different points to confirm the condition works.
+
+---
+
+### **7. Skip Specific Iterations**
+- **Objective**: Skip certain iterations in a loop.
+- **Instructions**:
+  - Add a breakpoint inside a loop.
+  - Set a condition: `i % 2 == 0`.
+  - Run the debugger and ensure it pauses only on even iterations.
+
+---
+
+### **8. Use Logical Negation**
+- **Objective**: Use the `!` operator in your condition.
+- **Instructions**:
+  - Set a breakpoint with the condition: `!(x > 50 && y < 100)`.
+  - Verify the breakpoint triggers only when the condition is false.
+
+---
+
+### **9. Watch for Null Values**
+- **Objective**: Pause when a variable is `null`.
+- **Instructions**:
+  - In a program with nullable objects, set a breakpoint with the condition: `myObject == null`.
+  - Test by passing `null` values to the variable and observe the debugger stopping.
+
+---
+
+### **10. Complex Debugging with Multiple Variables**
+- **Objective**: Combine multiple variables and conditions.
+- **Instructions**:
+  - Debug a program with multiple variables (e.g., `x`, `y`, `buttonColor`).
+  - Set a condition: `x > 50 && y < 200 && buttonColor.equals("red")`.
+  - Verify the program stops only when all conditions are true.
+
+---
+
+### **How to Set Conditional Breakpoints in IntelliJ**
+1. Place a breakpoint on the desired line.
+2. Right-click the red dot for the breakpoint and select **"More"** or **"Edit Breakpoint"**.
+3. Enter the condition in the **Condition** field.
+4. Run the debugger and observe when the breakpoint triggers.
+
+---
 
 
 
