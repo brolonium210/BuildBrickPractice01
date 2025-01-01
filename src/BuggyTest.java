@@ -1,13 +1,15 @@
 public class BuggyTest {
 
+    Counter counter = new Counter();
+
     public void runTests() {
         System.out.println("Starting tests...");
-        testInfiniteLoop();
+//        testInfiniteLoop();
         testIncorrectVariableState();
-        testNullPointerException();
-        testUnexpectedMethodCall();
-        testArrayIndexOutOfBounds();
-        testRaceCondition();
+//        testNullPointerException();
+//        testUnexpectedMethodCall();
+//        testArrayIndexOutOfBounds();
+//        testRaceCondition();
         System.out.println("All tests completed!");
     }
 
@@ -15,10 +17,13 @@ public class BuggyTest {
     private void testInfiniteLoop() {
         System.out.println("Testing Infinite Loop...");
         int i = 0;
+
         while (i < 10) { // Bug: i is never incremented
             if (i == 5) {
                 System.out.println("Halfway there!"); // Students should break here
             }
+//            counter.incrI();
+            i++;//solution ,remove for testing later
         }
         System.out.println("Infinite Loop Test Passed!"); // Never reaches here
     }
