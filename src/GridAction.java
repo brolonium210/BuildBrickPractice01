@@ -60,7 +60,8 @@ public class GridAction {
                 int bottomY = topY+size;
                 if((x > topX && x <= bottomX) && (y > topY && y <= bottomY)){
                     if(myGrid.getMouseBlock() != null){
-                        myGrid.addBlock(myGrid.getMouseBlock(),key);
+                        myGrid.addBlock(myGrid.getBlock(key),key);
+//                        myGrid.addBlock(myGrid.,key);
                         myGrid.setMouseBlock(null);
                     }else{
                         myGrid.pickBlock(key);
