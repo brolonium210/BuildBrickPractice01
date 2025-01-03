@@ -9,11 +9,14 @@ public class GridAction {
     private int width = 1600;
     private int height = 800;
     private Grid myGrid;
+    private Challenges chal;
 
     Counter counter = new Counter();
 
-    public GridAction(Grid grid){
+    public GridAction(Grid grid, Challenges chal){
+
         this.myGrid = grid;
+        this.chal = chal;
     }
 
     ArrayList<String> makeBasicLi(String[] arr){
@@ -69,11 +72,11 @@ public class GridAction {
                 }
             }
 
-            myGrid.redraw(x,y);
+            myGrid.redraw(x,y,chal);
         }
         if(action.equals("moved")){
 //            myGrid.printGrid();
-            myGrid.redraw(x,y);
+            myGrid.redraw(x,y,chal);
         }
 
     }
@@ -83,4 +86,16 @@ public class GridAction {
 //            myGrid.redraw(x,y);
         }
     }
+
+//    void doScore(){
+//        Boolean[] scores = myGrid.getScore();
+//        int totalScore = 0;
+//        for(int i=0; i<scores.length; i++){
+//            int intValue = scores[i] ? 1 : 0;
+//            totalScore += intValue;
+//        }
+//        String str = Integer.toString(totalScore);
+//        UI.drawString(str,600,600);
+//    }
+
 }
