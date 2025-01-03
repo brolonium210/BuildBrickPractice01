@@ -12,9 +12,15 @@ public class Main {
         LinkedList<Block> testList01 = challenges.makeBlocks();
 
         Grid grid01 = new Grid(testList01,Challsize);
-        GridAction gridaction = new GridAction(grid01);
+        GridAction gridaction = new GridAction(grid01,challenges);
         gridaction.setupGUI();
-        grid01.printGrid();
+        grid01.printGrid(challenges);
+
+//        Boolean[] score = challenges.testScore(testList01);
+//        System.out.println(score[0]);
+//        System.out.println(score[1]);
+//        System.out.println(score[2]);
+//        System.out.println(score[3]);
     }
 
 

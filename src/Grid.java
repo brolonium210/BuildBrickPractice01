@@ -12,6 +12,7 @@ public class Grid {
     private Block mouseBlock;
     private int mouseBlockINDEX;
     private int blockGap = 5;
+    public Boolean[] score;
 
     public Grid(LinkedList<Block>blockList,int ChalSize){
         this.BlockLocs = makeBlockLocs(ChalSize);
@@ -57,7 +58,7 @@ public class Grid {
         return TempLocs;
     }
 
-    public void printGrid(){
+    public void printGrid(Challenges chal){
         Color curColor = Color.BLACK;
         int size = 100;
         for(Map.Entry<Integer,int[]> entry : BlockLocs.entrySet()){
@@ -70,7 +71,24 @@ public class Grid {
                 UI.drawRect((value[0]*size)-1,(value[1]*size-1),size+1,size+1);
             }
         }
+        doScore(chal.testScore(blockList));
     }
+
+    void doScore(Boolean[] score){
+        int totalScore = 0;
+        for(int i=0; i<score.length; i++){
+            if(score[i] != null){
+                int intValue = score[i] ? 1 : 0;
+                totalScore += intValue;
+            }
+        }
+        String str = Integer.toString(totalScore);
+        UI.setFontSize(20);
+        UI.setColor(Color.BLACK);
+        UI.drawString(str,700,300);
+    }
+
+
 
     void pickBlock(int index){
         Block emptyBlock = new Block(0,0,0,Color.GRAY);
@@ -111,9 +129,9 @@ public class Grid {
         return mouseBlock;
     }
 
-    public void redraw(double x,double y){
+    public void redraw(double x,double y,Challenges chal){
         UI.clearGraphics();
-        printGrid();
+        printGrid(chal);
         if(getMouseBlock() != null){
             UI.setColor(getMouseBlock().getColor());
             UI.fillRect(x,y,100,100);
