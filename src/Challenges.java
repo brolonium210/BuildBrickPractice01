@@ -19,11 +19,28 @@ public class Challenges {
         colours.add(Color.RED);
         colours.add(Color.GREEN);
 
-
-        for(int i = 0; i < num; i++){
+        int i = 0;
+        while(i<num){
             Collections.shuffle(colours);
             blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
+            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
+            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
+            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
+            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
+            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+            i++;
         }
+//
+//        for(int i = 0; i < num; i++){
+//            Collections.shuffle(colours);
+//            blocks.addLast(new Block(i,0,0, colours.getFirst()));
+//        }
+        Collections.shuffle(blocks);
         return blocks;
     }
 

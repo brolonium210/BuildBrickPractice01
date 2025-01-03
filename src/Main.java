@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         //*********Linked List Practice************************
-        int Challsize = 18;
+        int Challsize = 30;
         Challenges challenges = new Challenges(Challsize);
         LinkedList<Block> testList01 = challenges.makeBlocks();
 
@@ -15,7 +15,6 @@ public class Main {
         GridAction gridaction = new GridAction(grid01);
         gridaction.setupGUI();
         grid01.printGrid();
-
     }
 
 
